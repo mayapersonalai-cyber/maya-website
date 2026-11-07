@@ -18,63 +18,156 @@
   </style>
 </head>
 <body>
-  <h1>Privacy Policy</h1>
-  <p>Last updated: November 6, 2026</p>
+<h1>Privacy Policy</h1>
+<p>Last updated: November 6, 2026</p>
 
-  <h2>1. About Maya</h2>
-  <p>
-    Maya is a personal AI assistant developed for
-    private, non-commercial use.
-  </p>
+<h2>1. About Maya</h2>
+<p>
+  Maya is an AI assistant maintained by its developer for that developer's own
+  account and personal workflows. It is not offered as a public sign-up service
+  or distributed commercially. This policy explains how its Gmail-connected
+  workflows handle Google user data and information derived from that data.
+</p>
 
-  <h2>2. Google Account Access</h2>
-  <p>
-    Maya requests access to Google Gmail data only
-    with authorization from the Google account owner.
-    The application may read, organize, and modify
-    email messages as required for its authorized
-    personal workflows.
-  </p>
+<h2>2. Google Account Access and Email Processing</h2>
+<p>
+  Maya uses an existing Desktop OAuth client and the gmail.modify permission.
+  Access requires authorization from the Google account owner. The Gmail
+  workflow is restricted to one designated account and an allowlist of senders.
+  When enabled, it can read messages, send replies, and remove unread labels.
+  Maya does not currently provide a Gmail message-deletion feature.
+</p>
+<p>
+  To identify eligible instructions, Maya searches the unread inbox and may
+  retrieve message bodies and headers, including sender, recipient, subject,
+  date, message and thread identifiers, labels, and authentication information.
+  A candidate message may be read into memory before its sender or instruction
+  is rejected. Access is therefore not limited to fetching only messages that
+  are ultimately accepted as commands.
+</p>
+<p>
+  Authentication checks may retrieve the raw MIME message, which can include
+  attachment data. The instruction handler rejects attachments and unsupported
+  formats and checks for common forwarding and quotation markers. Rejected
+  messages are not treated as accepted instructions or deliberately passed to
+  the normal AI instruction pipeline. These checks do not guarantee perfect
+  detection of quoted material or establish a person's identity. Email text is
+  not an independent authorization for privileged actions.
+</p>
 
-  <h2>3. Data Processing and Storage</h2>
-  <p>
-    Maya may process email content and metadata
-    to carry out user-authorized tasks.
-    Data may be stored locally on the user's computer.
-    Processing may involve external AI services,
-    depending on the configured workflow.
-  </p>
+<h2>3. Local Storage, Logs, and Backups</h2>
+<p>
+  Accepted instructions and their results may be stored locally as task
+  descriptions, outputs, review comments, activities, and improvement ideas,
+  dialogues, or proposals. The email-processing ledger may retain message and
+  thread identifiers, sender, subject, reply references, processing status,
+  related task identifiers, result summaries, and timestamps. It also records
+  delivery reservations and acknowledgements to reduce duplicate replies.
+</p>
+<p>
+  Operational logs and records can contain identifiers, status counts, error
+  categories, task titles, tool events, and information derived from requests.
+  Disabling AI tracing does not remove these local records. The application
+  does not maintain a complete mailbox archive as its normal command store,
+  but extracted instructions and derived content can persist.
+</p>
+<p>
+  Recovery backups are separate local copies. Credential backups contain OAuth
+  credential material. Backups that include application data or reports may
+  also retain Gmail-derived information. Removing an active record does not
+  automatically erase its copies or backups.
+</p>
 
-  <h2>4. Data Sharing</h2>
-  <p>
-    Maya is not intended for commercial distribution.
-    Google account data is not sold or used
-    for advertising.
-    Data may be transmitted to service providers
-    when necessary for authorized functionality.
-  </p>
+<h2>4. External AI Processing and Data Sharing</h2>
+<p>
+  Maya uses Google services for authorized Gmail operations. Workflows that
+  require AI processing may send instruction text, selected workflow context,
+  tool results, and generated artifacts to OpenAI's API. This information can
+  include Gmail-derived content. Separately enabled research workflows may
+  send approved source excerpts and the research request to an external AI
+  service. Mail authentication can also require DNS lookups for public keys.
+</p>
+<p>
+  In the protected Gmail AI pathway, SDK tracing and sensitive trace contents
+  are disabled and supported Responses requests use store=false. These
+  settings are not a guarantee of zero retention or zero operational review by
+  a service provider. Provider terms, account settings, and retention controls
+  must be checked separately before enabling the relevant workflow.
+</p>
+<p>
+  Pattern-based checks block suspected secrets and certain personal data, but
+  they do not guarantee complete anonymization or detection of every secret.
+  Only information needed for the authorized assistant function should be sent.
+  Maya is not intended to sell Google user data, use it for advertising, or
+  initiate generalized AI-model training with it. Google-derived data must not
+  be used by a provider for generalized-model training. The developer must
+  verify compatible provider terms and controls before enabling such processing.
+</p>
+<p>
+  Use and transfer of Google API data must follow the
+  <a href="https://developers.google.com/terms/api-services-user-data-policy">
+    Google API Services User Data Policy</a>, including its Limited Use rules.
+  This policy does not authorize unrelated secondary uses of Google user data.
+</p>
 
-  <h2>5. Data Retention and Deletion</h2>
-  <p>
-    Locally stored application data may be retained
-    for operational purposes.
-    The account owner can discontinue use,
-    revoke Google account access, and request
-    deletion of locally stored application data.
-  </p>
+<h2>5. Retention, Deletion, and Revoking Access</h2>
+<p>
+  There is no implemented app-wide automatic retention deadline for the email
+  ledger, tasks, improvement records, artifacts, logs, or backups. Separate
+  conversation-history cleanup and deletion helpers exist, but they do not
+  establish a uniform Gmail-data retention period.
+</p>
+<p>
+  Maya does not currently provide a verified one-step process that erases all
+  Gmail-derived records and backup copies. The account owner must separately
+  identify the affected records, arrange an appropriate deletion procedure,
+  and verify its scope and outcome. This policy does not promise immediate or
+  automatic erasure. Recovery and audit copies require separate consideration.
+</p>
+<p>
+  The owner can stop using Maya and revoke its access in Google Account
+  settings. Revocation does not automatically delete information already
+  stored locally or held in backups, and does not by itself establish deletion
+  by an external service provider.
+</p>
 
-  <h2>6. Security</h2>
-  <p>
-    Maya is designed to restrict access to authorized
-    accounts and to protect stored credentials.
-  </p>
+<h2>6. Security</h2>
+<p>
+  Maya checks the designated Gmail account and allowed sender information.
+  Its email-admission checks use Google ARC signatures and associated
+  DKIM/DMARC results rather than trusting an unverified header string alone.
+  Unsupported or unverifiable input is rejected. These checks are security
+  controls, not a guarantee that every message or instruction is trustworthy.
+</p>
+<p>
+  OAuth files and protected credential backups use owner-only file permissions
+  and private directories. File-access controls check ownership, links, ACL
+  evidence, and file identity, and restrict AI file tools from secret locations.
+  The recovery process maintains TLS verification and validates new credentials
+  before replacing an existing credential file.
+</p>
+<p>
+  Local permissions are not encryption. This review has not established that
+  every local database, device, or backup is encrypted at rest. Application
+  file-tool restrictions are also not an operating-system sandbox against
+  arbitrary malicious code running as the same user. Google and external AI
+  services have separate security and retention controls.
+</p>
 
-  <h2>7. Changes</h2>
-  <p>
-    This policy may be updated when the application's
-    functionality or data handling practices change.
-  </p>
+<h2>7. Owner Control and Changes</h2>
+<p>
+  Maya is used only by its developer, who is also its sole account owner and
+  administrator. Access, retention, and deletion decisions are handled directly
+  by that owner on the device; Maya does not provide a public customer-support
+  or automatic deletion service. A public support contact must be provided if
+  the application is later offered to other users.
+</p>
+<p>
+  This policy will be reviewed when data access, processing, service providers,
+  retention, or other relevant practices change. A revised policy is not a
+  substitute for any additional authorization required for a new use of data.
+</p>
 
-  <p><a href="index.html">Back to Maya homepage</a></p>
+<p><a href="index.html">Back to Maya homepage</a></p>
 </body>
 </html>
